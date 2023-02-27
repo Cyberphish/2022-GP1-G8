@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 import sklearn
 import pandas as pd
-model = pickle.load(open('nb.pkl', 'rb'))
+model = pickle.load(open('nb2.pkl', 'rb'))
 vec = pickle.load(open("vec.pkl", "rb"))
 
 
@@ -26,16 +26,17 @@ def pred():
         subject = request_data['subject']
         body = request_data['body']
         features = "\n".join([subject, body])
-        encode = vec.transform([features]).toarray()
-        bag_of_words = pd.DataFrame(
-               encode, columns=vec.get_feature_names_out())
+        prediction = model.predict([features])
+        #         encode = vec.transform([features]).toarray()
+        #         bag_of_words = pd.DataFrame(
+        #                encode, columns=vec.get_feature_names_out())
 
-        prediction = model.predict(encode)
-        Vocab_list = {}
+        #         prediction = model.predict([features])
+        #         Vocab_list = {}
 
-        for vector in bag_of_words:
-           if (bag_of_words[vector].values > 0):
-               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        #         for vector in bag_of_words:
+        #            if (bag_of_words[vector].values > 0):
+        #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
 
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
@@ -49,16 +50,17 @@ def pred():
         body = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
         Vocab_list = {}
         features = "\n".join([subject, body])
-        encode = vec.transform([features]).toarray()
-        bag_of_words = pd.DataFrame(
-                encode, columns=vec.get_feature_names_out())
+        prediction = model.predict([features])
+        #         encode = vec.transform([features]).toarray()
+        #         bag_of_words = pd.DataFrame(
+        #                encode, columns=vec.get_feature_names_out())
 
-        prediction = model.predict(encode)
-        Vocab_list = {}
+        #         prediction = model.predict([features])
+        #         Vocab_list = {}
 
-        for vector in bag_of_words:
-           if (bag_of_words[vector].values > 0):
-               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        #         for vector in bag_of_words:
+        #            if (bag_of_words[vector].values > 0):
+        #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
 
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
