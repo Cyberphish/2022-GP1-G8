@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 import sklearn
 import pandas as pd
-model = pickle.load(open('nb2.pkl', 'rb'))
+model = pickle.load(open('NB2.pkl', 'rb'))
 vec = pickle.load(open("vec.pkl", "rb"))
 
 
