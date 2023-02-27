@@ -5,7 +5,7 @@ import pickle
 import sklearn
 import pandas as pd
 import imblearn
-model = pickle.load(open('NB2.pkl', 'rb'))
+model = pickle.load(open('nb.pkl', 'rb'))
 vec = pickle.load(open("vec.pkl", "rb"))
 
 
@@ -29,16 +29,17 @@ def pred():
         features = "\n".join([subject, body])
         prediction = model.predict([features])
         Vocab_list = {}
-        #         encode = vec.transform([features]).toarray()
-        #         bag_of_words = pd.DataFrame(
-        #                encode, columns=vec.get_feature_names_out())
+        encode = vec.transform([features]).toarray()
+        bag_of_words = pd.DataFrame(
+               encode, columns=vec.get_feature_names_out())
 
-        #         prediction = model.predict([features])
-        #         Vocab_list = {}
+        
+        Vocab_list = {}
 
-        #         for vector in bag_of_words:
-        #            if (bag_of_words[vector].values > 0):
-        #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        for vector in bag_of_words:
+           if (bag_of_words[vector].values > 0):
+               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        prediction = model.predict([encode])
 
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
@@ -54,17 +55,16 @@ def pred():
         features = "\n".join([subject, body])
         prediction = model.predict([features])
         Vocab_list = {}
-        #         encode = vec.transform([features]).toarray()
-        #         bag_of_words = pd.DataFrame(
-        #                encode, columns=vec.get_feature_names_out())
+        encode = vec.transform([features]).toarray()
+        bag_of_words = pd.DataFrame(
+               encode, columns=vec.get_feature_names_out())
 
-        #         prediction = model.predict([features])
-        #         Vocab_list = {}
+        Vocab_list = {}
 
-        #         for vector in bag_of_words:
-        #            if (bag_of_words[vector].values > 0):
-        #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
-
+        for vector in bag_of_words:
+           if (bag_of_words[vector].values > 0):
+               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        prediction = model.predict([encode])
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
         return jsonify({'prediction': prediction[1],
