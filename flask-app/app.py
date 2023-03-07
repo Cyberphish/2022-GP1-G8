@@ -53,7 +53,7 @@ def pred():
         prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
-        return jsonify({'prediction': prediction[1],
+        return jsonify({'prediction': prediction,
                         'vocabulary': response
                         }) 
 
@@ -74,6 +74,6 @@ def pred():
         prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
-        return jsonify({'prediction': prediction[1],
+        return jsonify({'prediction': prediction,
                         'vocabulary': response
                         }) 
