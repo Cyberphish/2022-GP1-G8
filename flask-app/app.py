@@ -46,13 +46,11 @@ def pred():
         encode = vec.transform([features]).toarray()
         #         bag_of_words = pd.DataFrame(
         #                encode, columns=vec.get_feature_names_out())
-
-
         #         for vector in bag_of_words:
         #            if (bag_of_words[vector].values > 0):
         #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
         #         prediction = model.predict(encode)
-        prediction = get_predictions(vector)
+        prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
         return jsonify({'prediction': prediction[1],
@@ -67,15 +65,13 @@ def pred():
         features = "\n".join([subject, body])
         Vocab_list = {}
         encode = vec.transform([features]).toarray()
-        bag_of_words = pd.DataFrame(
-               encode, columns=vec.get_feature_names_out())
-
-        Vocab_list = {}
-
-        for vector in bag_of_words:
-           if (bag_of_words[vector].values > 0):
-               Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
-        prediction = model.predict(encode)
+        #         bag_of_words = pd.DataFrame(
+        #                encode, columns=vec.get_feature_names_out())
+        #         for vector in bag_of_words:
+        #            if (bag_of_words[vector].values > 0):
+        #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
+        #         prediction = model.predict(encode)
+        prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
         return jsonify({'prediction': prediction[1],
