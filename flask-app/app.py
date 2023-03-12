@@ -9,11 +9,11 @@ import keras
 from tensorflow.python.keras import models
 from keras_preprocessing.sequence import pad_sequences
 
-model = pickle.load(open('nb.pkl', 'rb'))
+model = pickle.load(open('SVMmodel-NS.pkl', 'rb'))
 vec = pickle.load(open("vec.pkl", "rb"))
-model = keras.models.load_model('spam_classifier_0.31.h5')
-SEQUENCE_LENGTH = 100
-tokenizer = pickle.load(open("tokenizer.pickle", "rb"))
+# model = keras.models.load_model('spam_classifier_0.31.h5')
+# SEQUENCE_LENGTH = 100
+# tokenizer = pickle.load(open("tokenizer.pickle", "rb"))
 
 
 app = Flask(__name__)
@@ -43,14 +43,14 @@ def pred():
         body = request_data['body']
         features = "\n".join([subject, body])
         Vocab_list = {}
-        encode = vec.transform([features]).toarray()
+        #         encode = vec.transform([features]).toarray()
         #         bag_of_words = pd.DataFrame(
         #                encode, columns=vec.get_feature_names_out())
         #         for vector in bag_of_words:
         #            if (bag_of_words[vector].values > 0):
         #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
-        #         prediction = model.predict(encode)
-        prediction = get_predictions(features)
+        prediction = model.predict([features])
+        #         prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
         return jsonify({'prediction': prediction,
@@ -71,7 +71,9 @@ def pred():
         #            if (bag_of_words[vector].values > 0):
         #                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
         #         prediction = model.predict(encode)
-        prediction = get_predictions(features)
+        prediction = model.predict([features])
+
+        #         prediction = get_predictions(features)
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
         return jsonify({'prediction': prediction,
