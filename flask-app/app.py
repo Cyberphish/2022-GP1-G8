@@ -26,17 +26,18 @@ def pred():
         subject = request_data['subject']
         body = request_data['body']
         features = "\n".join([subject, body])
-        prediction = model.predict([features])
-        vocabulary  = vectorizer.transform([features]).toarray()   
         Vocab_list = {}
+        prediction = model.predict([features])
+        encode  = vectorizer.transform([features]).toarray()  
         bag_of_words = pd.DataFrame(
-               vocabulary, columns=vectorizer.get_feature_names_out())
+                 encode, columns=vectorizer.get_feature_names_out())
+        Vocab_list = {}
         for vector in bag_of_words:
            if (bag_of_words[vector].values > 0):
                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
-        return jsonify({'prediction': prediction,
+        return jsonify({'prediction': prediction[1],
                         'vocabulary': response
                         }) 
 
@@ -44,17 +45,21 @@ def pred():
         # sending data back to your frontend app
         subject = 'funds to share'
         body = "The University of Washington System is sharing funds for all students during this pandemic, please update your \n financial aid status to claim yours. \nLogin.uw.edu/covid-19-aid-update\n For instructions on Accepting Your Financial Aid on https://login.uw.edu/login/login./.\n Regards,\n Assistant Professor \nUniversity of Washington"
+        Vocab_list = {}
         features = "\n".join([subject, body]) 
         Vocab_list = {}
         prediction = model.predict([features])
-        vocabulary  = vectorizer.transform([features]).toarray()  
+        encode  = vectorizer.transform([features]).toarray()  
         bag_of_words = pd.DataFrame(
-               vocabulary, columns=vectorizer.get_feature_names_out())
+                 encode, columns=vectorizer.get_feature_names_out())
+        Vocab_list = {}
         for vector in bag_of_words:
            if (bag_of_words[vector].values > 0):
                Vocab_list[bag_of_words[vector].name] = bag_of_words[vector].values[0]
         prediction = f'{prediction}'
         response = f'{Vocab_list}'        
-        return jsonify({'prediction': prediction,
+        return jsonify({'prediction': prediction[1],
                         'vocabulary': response
                         }) 
+        
+    
