@@ -10,10 +10,7 @@ model = pickle.load(open('SVMmodel.pkl', 'rb'))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
 app = Flask(__name__)
-
-# declared an empty variable for reassignment
 response = ''
-
 
 @app.route('/', methods=['GET', 'POST'])
 def pred():
