@@ -22,13 +22,11 @@ def pred():
     if (request.method == 'POST'):
         subject = ''
         body=''
-        Vocab_list = {}
         data = request.data
         request_data = json.loads(data.decode('utf-8'))
         subject = request_data['subject']
         body = request_data['body']
         features = "\n".join([subject, body])
-        Vocab_list = {}
         prediction = model.predict([features])
         encode  = vectorizer.transform([features]).toarray()  
         bag_of_words = pd.DataFrame(
