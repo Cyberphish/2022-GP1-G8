@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "909500966405",
+    "firebase_url": "https://cyberphish-gp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cyberphish-gp",
+    "storage_bucket": "cyberphish-gp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909500966405:android:2626cd2e0401d4d1005e6c",
+        "android_client_info": {
+          "package_name": "com.example.cyberphish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909500966405-4iei1vq744vail9ctme7jcgk16aqgsnu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cyberphish",
+            "certificate_hash": "1be243d4e1095ef21c5d6787dd081bdb34635808"
+          }
+        },
+        {
+          "client_id": "909500966405-4j3fqjeij0bjhl6nl0duco8i7d7qd050.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cyberphish",
+            "certificate_hash": "952b6846f60282a236ce77091a9450ecc359e6ce"
+          }
+        },
+        {
+          "client_id": "909500966405-iqitti3ph4o57mjftevkm65gqoh0qe1r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cyberphish",
+            "certificate_hash": "c8f4456238620cace140418a366bcec9b67f0d64"
+          }
+        },
+        {
+          "client_id": "909500966405-lvl7p20atfmahhioeu9ea6lbllh00g57.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cyberphish",
+            "certificate_hash": "46cfdd680896fc973fb0d28393ab8ffc611a291e"
+          }
+        },
+        {
+          "client_id": "909500966405-tui2vuu4h48heea40gfrendltut4ucea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx58XcSBhTe69KGH-Kcpqsyxt4oKMbLM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909500966405-tui2vuu4h48heea40gfrendltut4ucea.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "909500966405-nh83i0tt9ersf0hfgvvlp1n7k6k99upo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cyberphish"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
