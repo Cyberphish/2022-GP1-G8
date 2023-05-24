@@ -1,5 +1,5 @@
 # CyberPhish
-## 2022-GP1-G8
+## 2022-GP2-G8
 CyberPhish is a mobile application that gives users feedback analysis and warns them regarding an email. CyberPhish will be like a safety net that opens users’ eyes to the true purpose of the emails in their inbox.
 
 # Programming Languages:
