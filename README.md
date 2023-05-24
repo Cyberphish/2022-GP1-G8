@@ -1,6 +1,7 @@
-# 2022-GP1-G8 (CyberPhish)
+# 2022-GP2-G8 (CyberPhish)
 
-![logo-no-background](https://user-images.githubusercontent.com/113986409/200383840-1ee3a070-68e0-431a-87df-40eb29e6dfb8.png)
+<img width="314" alt="logo-nobg" src="https://github.com/Cyberphish/2022-GP1-G8/assets/113986409/d022799e-192f-411c-ab59-0d0dcd2b20b7">
+
 
 # About this project:
 "CyberPhish" is a phishing detection android application targeted towards intrested Gmail users. It provides it's users with a feedback analysis and awarness content regarding phishing. CyberPhish will be like a safety net that opens users’ eyes to the true purpose of the emails in their inbox.
